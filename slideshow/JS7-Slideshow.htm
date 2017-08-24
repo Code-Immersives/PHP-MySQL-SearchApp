@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<!-- saved from url=(0054)http://www.cuppajavascript.com/lesson06-slideshow.html -->
+<html>
+    
+    <head>
+
+<title>JS7 - Slideshow</title>
+        
+     <link href="css/slideshow.css" rel="stylesheet" type="text/css">
+
+</head>
+
+  <body>
+  
+    <div id="slideshow">
+       
+       <div id="bigPic">
+       	  <img src="images/bunny01.jpg" width="100%" height="auto">
+       </div>       
+       
+       <div id="thumbs"></div>
+       
+    </div><!--close id="slideshow"-->
+    
+    <!-- Hope you enjoyed this lesson. My name is Jiayuan "Janice" Liu. 
+		// Please gimme a THUMBS UP at YouTube & subscribe to Javascript Janice! THANX! -->
+    
+   <script>
+	
+		var imgArr = ["bunny01.jpg", "bunny02.jpg", "bunny03.jpg", "bunny04.jpg", "bunny05.jpg", "bunny06.jpg", "bunny07.jpg", "bunny08.jpg", "bunny09.jpg", "bunny10.jpg", "bunny11.jpg", "bunny12.jpg", "bunny13.jpg"];
+		
+		// concatenate the file name from the array into an img tag
+		var bigPic = '<img src="images/' + imgArr[0] + '" width="100%" height="auto">';
+		// output first big pic on page load
+		document.getElementById("bigPic").innerHTML = bigPic;
+		
+		// make the thumbs using an array, pass in the param "i"
+		for(i=0; i<imgArr.length; i++) {
+			var thumb = '<img src="images/' + imgArr[i] + '" width="100%" height="auto" onclick="swapPic(' + i + ')">';
+			document.getElementById("thumbs").innerHTML += thumb;
+		}
+		
+		// function swaps image when user clicks a thumb
+		// param tells func which thumb was clicked 
+		function swapPic(i) {
+			// use the func param to select the correct array index
+			bigPic = '<img src="images/' + imgArr[i] + '" width="100%" height="auto">';
+			document.getElementById("bigPic").innerHTML = bigPic;
+		}
+
+	</script>
+
+</body>
+
+
+</html>
